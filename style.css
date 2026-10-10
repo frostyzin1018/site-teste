@@ -410,8 +410,6 @@ body {
     margin-left: 0;
     padding-left: 0;
 }
-
-/* Centralizar os títulos e textos do rodapé */
-.rodape {
+body {
     text-align: center;
 }
