@@ -1,121 +1,153 @@
-/* ==========================================================================
-   RESET E CONFIGURAÇÕES GERAIS
-   ========================================================================== */
+/* =========================================================
+   CONFIGURAÇÕES GERAIS
+   ========================================================= */
+:root {
+    --fundo: #121212;
+    --painel: #161616;
+    --painel-claro: #1c1c1c;
+    --borda: #282828;
+    --verde: #55ff55;
+    --verde-escuro: #4a9c2d;
+    --texto: #e0e0e0;
+    --texto-suave: #cccccc;
+}
+
 * {
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    transition: background-color 0.2s ease, transform 0.2s ease, border-color 0.2s ease;
+}
+
+html {
+    scroll-behavior: smooth;
+    scroll-padding-top: 80px;
 }
 
 body {
-    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
-    background-color: #121212; /* Fundo Gamer Dark */
-    background-image: radial-gradient(circle at top, #1a2e1a 0%, #121212 70%);
-    color: #e0e0e0;
+    font-family: "Segoe UI", Tahoma, Geneva, Verdana, sans-serif;
+    background-color: var(--fundo);
+    background-image: radial-gradient(circle at top, #1a2e1a 0%, var(--fundo) 70%);
+    color: var(--texto);
     line-height: 1.6;
     -webkit-font-smoothing: antialiased;
 }
 
-/* ==========================================================================
-   CABEÇALHO (HEADER)
-   ========================================================================== */
+a {
+    color: inherit;
+}
+
+p {
+    margin-bottom: 16px;
+}
+
+p:last-child {
+    margin-bottom: 0;
+}
+
+/* =========================================================
+   CABEÇALHO
+   ========================================================= */
 .cabecalho {
     background-color: #161616;
     color: #fff;
     text-align: center;
     padding: 40px 20px;
     border-bottom: 3px solid #2e5c1e;
-    box-shadow: 0 4px 20px rgba(0,0,0,0.5);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.5);
 }
 
 .cabecalho h1 {
+    color: var(--verde);
     font-size: 36px;
     font-weight: 800;
     margin-bottom: 10px;
-    color: #55ff55; /* Verde clássico do Minecraft */
     text-transform: uppercase;
     letter-spacing: 1.5px;
-    text-shadow: 2px 2px 0px #000;
+    text-shadow: 2px 2px 0 #000;
 }
 
 .subtitulo {
+    color: #aaa;
     font-size: 15px;
-    color: #aaaaaa;
     font-weight: 500;
 }
 
-/* ==========================================================================
-   NAVEGAÇÃO (MENU)
-   ========================================================================== */
+/* =========================================================
+   MENU DE NAVEGAÇÃO
+   ========================================================= */
 .menu {
-    background-color: #1c1c1c;
-    padding: 0;
-    text-align: center;
-    border-bottom: 2px solid #282828;
     position: sticky;
     top: 0;
     z-index: 100;
-    box-shadow: 0 2px 10px rgba(0,0,0,0.3);
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    background-color: #1c1c1c;
+    border-bottom: 2px solid var(--borda);
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.3);
 }
 
 .menu a {
+    display: inline-block;
+    padding: 14px 15px;
     color: #b0b0b0;
     text-decoration: none;
-    margin: 0;
-    font-size: 14px;
-    font-weight: 600;
-    padding: 16px 20px;
-    display: inline-block;
+    text-align: center;
+    font-size: 13px;
+    font-weight: 700;
     text-transform: uppercase;
-    letter-spacing: 0.5px;
+    letter-spacing: 0.4px;
+    border-bottom: 2px solid transparent;
+    transition: color 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
 }
 
-.menu a:hover {
+.menu a:hover,
+.menu a:focus-visible {
+    color: var(--verde);
     background-color: #242424;
-    color: #55ff55;
-    border-bottom: 2px solid #55ff55;
-    padding-bottom: 14px; /* Mantém o alinhamento com a borda ativa */
+    border-bottom-color: var(--verde);
+    outline: none;
 }
 
-/* ==========================================================================
-   ESTRUTURA DAS SEÇÕES E CARDS
-   ========================================================================== */
+/* =========================================================
+   SEÇÕES E CARDS — PADRÃO DO SITE
+   ========================================================= */
 .secao {
-    max-width: 960px;
+    max-width: 1000px;
     margin: 40px auto;
     padding: 0 20px;
+    scroll-margin-top: 80px;
 }
 
-.secao h2 {
-    background-color: #1c1c1c;
-    color: #55ff55;
+.secao > h2 {
     padding: 14px 20px;
+    color: var(--verde);
+    background-color: var(--painel-claro);
+    border: 1px solid var(--borda);
+    border-bottom: none;
     border-radius: 8px 8px 0 0;
     font-size: 20px;
     font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    border: 1px solid #282828;
-    border-bottom: none;
 }
 
 .card {
-    background-color: #161616;
-    padding: 30px;
-    border: 1px solid #282828;
-    border-radius: 0 0 8px 8px;
-    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
     margin-bottom: 25px;
+    padding: 30px;
+    background-color: var(--painel);
+    border: 1px solid var(--borda);
+    border-radius: 0 0 8px 8px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
 }
 
 .card h3 {
-    color: #ffffff;
     margin-top: 25px;
     margin-bottom: 12px;
-    font-size: 18px;
-    border-left: 4px solid #4a9c2d;
     padding-left: 10px;
+    color: #fff;
+    border-left: 4px solid var(--verde-escuro);
+    font-size: 18px;
 }
 
 .card h3:first-child {
@@ -123,62 +155,60 @@ body {
 }
 
 .card p {
-    margin-bottom: 16px;
-    color: #cccccc;
+    color: var(--texto-suave);
 }
 
-/* Listas formatadas */
-.card ul, .card ol {
-    margin-left: 20px;
+.card ul,
+.card ol {
+    margin-left: 22px;
     margin-bottom: 16px;
-    color: #cccccc;
+    color: var(--texto-suave);
 }
 
 .card li {
     margin-bottom: 8px;
 }
 
-/* ==========================================================================
-   COMPONENTES ESPECÍFICOS
-   ========================================================================== */
-
-/* Teclas de Atalho / Teclado */
+/* =========================================================
+   TECLAS E DIAGRAMAS
+   ========================================================= */
 .teclas {
-    text-align: center;
     margin: 20px 0;
-    background: #111;
     padding: 15px;
+    background: #111;
     border-radius: 6px;
+    text-align: center;
 }
 
 .tecla {
-    background-color: #222;
-    color: #fff;
-    padding: 8px 16px;
-    border-radius: 6px;
-    font-weight: bold;
-    border: 1px solid #444;
-    border-bottom: 3px solid #555;
     display: inline-block;
     margin: 4px;
-    font-family: 'Courier New', Courier, monospace;
-    box-shadow: 0 2px 4px rgba(0,0,0,0.4);
-}
-
-/* Diagramas Textuais */
-.diagrama {
-    background-color: #111;
-    color: #55ff55;
-    font-family: 'Courier New', Courier, monospace;
-    padding: 15px;
-    border: 1px solid #282828;
-    text-align: center;
-    margin-top: 20px;
+    padding: 8px 16px;
+    color: #fff;
+    background-color: #222;
+    border: 1px solid #444;
+    border-bottom: 3px solid #555;
     border-radius: 6px;
-    letter-spacing: 1px;
+    font-family: "Courier New", Courier, monospace;
+    font-weight: bold;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.4);
 }
 
-/* Grid de Equipamentos */
+.diagrama {
+    margin-top: 20px;
+    padding: 15px;
+    color: var(--verde);
+    background-color: #111;
+    border: 1px solid var(--borda);
+    border-radius: 6px;
+    text-align: center;
+    font-family: "Courier New", Courier, monospace;
+    letter-spacing: 0.3px;
+}
+
+/* =========================================================
+   EQUIPAMENTOS
+   ========================================================= */
 .grid-equipamentos {
     display: grid;
     grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
@@ -187,141 +217,185 @@ body {
 }
 
 .card-equipamento {
-    background-color: #1c1c1c;
     padding: 20px;
-    border: 1px solid #282828;
+    background-color: var(--painel-claro);
+    border: 1px solid var(--borda);
     border-radius: 8px;
-    box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.15);
+    transition: transform 0.2s ease, border-color 0.2s ease;
+}
+
+.card-equipamento:hover {
+    transform: translateY(-3px);
+    border-color: var(--verde-escuro);
 }
 
 .card-equipamento h3 {
-    color: #55ff55;
-    margin-bottom: 12px;
-    font-size: 18px;
-    border-left: none;
+    margin-top: 0;
     padding-left: 0;
+    color: var(--verde);
+    border-left: none;
 }
 
-/* Listas customizadas (Treino e Erros) */
+.card-equipamento p {
+    margin-bottom: 0;
+}
+
+/* =========================================================
+   TABELA RESPONSIVA
+   ========================================================= */
+.tabela-responsiva {
+    width: 100%;
+    margin-top: 12px;
+    overflow-x: auto;
+    border: 1px solid var(--borda);
+    border-radius: 6px;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    background-color: #151515;
+    text-align: left;
+}
+
+th,
+td {
+    padding: 12px 14px;
+    border-bottom: 1px solid var(--borda);
+}
+
+th {
+    color: var(--verde);
+    background-color: #202020;
+}
+
+td {
+    color: var(--texto-suave);
+}
+
+tbody tr:hover {
+    background-color: #202020;
+}
+
+tbody tr:last-child td {
+    border-bottom: none;
+}
+
+/* =========================================================
+   LISTAS DE TREINO E ERROS
+   ========================================================= */
 .lista-treino li {
-    margin-bottom: 10px;
-    list-style-type: '✓ ';
     color: #a3e6a3;
-}
-
-.lista-erros {
-    color: #ff6b6b;
+    padding-left: 3px;
 }
 
 .lista-erros li {
-    margin-bottom: 10px;
-    list-style-type: '✕ ';
+    color: #ff8a8a;
+    padding-left: 3px;
 }
 
-/* Grid de Dicas Rápidas */
+.lista-treino li::marker {
+    color: var(--verde);
+}
+
+.lista-erros li::marker {
+    color: #ff6b6b;
+}
+
+/* =========================================================
+   DICAS E DESTAQUES
+   ========================================================= */
 .grid-dicas {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
     gap: 15px;
-    margin-top: 15px;
+    margin-top: 5px;
 }
 
-.dica {
-    background-color: #1c1c1c;
-    color: #e0e0e0;
+.dica,
+.destaque {
     padding: 18px;
-    border: 1px solid #282828;
-    border-left: 4px solid #4a9c2d;
-    border-radius: 4px;
-    text-align: center;
-    font-weight: 600;
+    color: var(--texto);
+    background-color: var(--painel-claro);
+    border: 1px solid var(--borda);
+    border-left: 4px solid var(--verde-escuro);
+    border-radius: 6px;
     font-size: 14px;
-    box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+    font-weight: 600;
+    text-align: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease, background-color 0.2s ease, border-color 0.2s ease;
 }
 
 .dica:hover {
-    background-color: #222;
     transform: translateY(-3px);
-    border-left-color: #55ff55;
+    background-color: #222;
+    border-left-color: var(--verde);
 }
 
-/* Seção de Vídeos */
-.texto-videos {
-    color: #aaaaaa;
-    margin-bottom: 20px;
-    text-align: center;
+.destaque {
+    margin-top: 20px;
+    text-align: left;
     font-size: 15px;
 }
 
-.grid-videos {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 20px;
-}
-
-.card-video {
-    background-color: #161616;
-    padding: 25px;
-    border: 1px solid #282828;
-    border-radius: 8px;
-    text-align: center;
-    box-shadow: 0 4px 12px rgba(0,0,0,0.2);
-}
-
-.card-video h3 {
-    color: #ffffff;
-    margin-bottom: 12px;
-    border-left: none;
-    padding-left: 0;
-}
-
-.card-video p {
-    margin-bottom: 20px;
-    font-size: 14px;
-    color: #aaaaaa;
+/* =========================================================
+   LINKS DE VÍDEOS
+   ========================================================= */
+.videos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 15px;
+    margin-top: 20px;
 }
 
 .botao-video {
     display: inline-block;
-    background-color: #4a9c2d;
+    padding: 12px 24px;
     color: #fff;
-    padding: 10px 24px;
-    text-decoration: none;
+    background-color: var(--verde-escuro);
+    border: 1px solid var(--verde-escuro);
     border-radius: 6px;
-    font-weight: 700;
+    text-decoration: none;
+    text-align: center;
     font-size: 14px;
+    font-weight: 700;
     text-transform: uppercase;
     letter-spacing: 0.5px;
-    box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+    transition: transform 0.2s ease, background-color 0.2s ease, color 0.2s ease;
 }
 
-.botao-video:hover {
-    background-color: #55ff55;
+.botao-video:hover,
+.botao-video:focus-visible {
     color: #000;
+    background-color: var(--verde);
     transform: translateY(-2px);
-    box-shadow: 0 4px 10px rgba(85,255,85,0.3);
+    outline: none;
 }
 
-/* Frase de efeito de encerramento */
+/* =========================================================
+   CONCLUSÃO E RODAPÉ
+   ========================================================= */
 .frase-final {
-    text-align: center;
+    margin-top: 20px;
+    color: var(--verde) !important;
     font-size: 18px;
     font-weight: bold;
-    color: #55ff55;
-    margin-top: 25px;
-    text-shadow: 1px 1px 2px rgba(0,0,0,0.5);
+    text-align: center;
+    text-shadow: 1px 1px 2px rgba(0, 0, 0, 0.5);
 }
 
-/* ==========================================================================
-   RODAPÉ (FOOTER)
-   ========================================================================== */
 .rodape {
-    background-color: #0d0d0d;
-    color: #777777;
-    text-align: center;
-    padding: 30px 20px;
     margin-top: 60px;
+    padding: 30px 20px;
+    color: #777;
+    background-color: #0d0d0d;
     border-top: 1px solid #222;
+    text-align: center;
     font-size: 13px;
 }
 
@@ -329,64 +403,116 @@ body {
     margin-bottom: 6px;
 }
 
-/* ==========================================================================
-   RESPONSIVIDADE (MEDIA QUERIES)
-   ========================================================================== */
+.rodape p:last-child {
+    margin-bottom: 0;
+}
+
+/* =========================================================
+   RESPONSIVIDADE
+   ========================================================= */
 @media (max-width: 768px) {
+    .cabecalho {
+        padding: 30px 16px;
+    }
+
     .cabecalho h1 {
         font-size: 28px;
     }
 
     .menu {
-        display: flex;
+        flex-wrap: nowrap;
+        justify-content: flex-start;
         overflow-x: auto;
         white-space: nowrap;
-        justify-content: flex-start;
     }
-    
+
     .menu a {
-        padding: 14px 16px;
         flex: 0 0 auto;
+        padding: 13px 14px;
     }
 
     .secao {
-        margin: 20px auto;
+        margin: 25px auto;
+        padding: 0 14px;
     }
 
-    .secao h2 {
+    .secao > h2 {
+        padding: 12px 15px;
         font-size: 18px;
     }
 
     .card {
         padding: 20px;
     }
+
+    .grid-equipamentos {
+        grid-template-columns: repeat(auto-fit, minmax(190px, 1fr));
+        gap: 14px;
+    }
+
+    .diagrama {
+        overflow-wrap: anywhere;
+        font-size: 14px;
+    }
 }
 
 @media (max-width: 480px) {
     .cabecalho h1 {
-        font-size: 24px;
+        font-size: 23px;
+    }
+
+    .subtitulo {
+        font-size: 13px;
+    }
+
+    .secao > h2 {
+        font-size: 16px;
+    }
+
+    .card {
+        padding: 16px;
+    }
+
+    .card h3 {
+        font-size: 16px;
     }
 
     .tecla {
         padding: 6px 12px;
         font-size: 12px;
     }
-    
-    .card-video {
-        padding: 15px;
+
+    .grid-equipamentos,
+    .grid-dicas {
+        grid-template-columns: 1fr;
+    }
+
+    .videos {
+        flex-direction: column;
+        align-items: stretch;
+    }
+
+    .botao-video {
+        width: 100%;
+    }
+
+    th,
+    td {
+        padding: 9px;
+        font-size: 13px;
     }
 }
-/* Espaçamento entre os links de videos */
-.videos {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    flex-wrap: wrap;
-    gap: 20px;
-    margin-top: 20px;
-}
-.videos .botao {
-    display: inline-block;
-    padding: 12px 24px;
-    border-radius: 8px;
+
+/* Respeita quem prefere menos animações */
+@media (prefers-reduced-motion: reduce) {
+    html {
+        scroll-behavior: auto;
+    }
+
+    *,
+    *::before,
+    *::after {
+        transition-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+    }
 }
