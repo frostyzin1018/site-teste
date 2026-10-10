@@ -390,3 +390,28 @@ body {
     padding: 12px 24px;
     border-radius: 8px;
 }
+/* Centralizar os textos do site */
+.secao,
+.secao p,
+.secao h2,
+.secao h3,
+.secao li,
+.card,
+.card-equipamento,
+.dica,
+.frase-final {
+    text-align: center;
+}
+
+/* Centralizar as listas */
+.lista-treino,
+.lista-erros {
+    list-style-position: inside;
+    margin-left: 0;
+    padding-left: 0;
+}
+
+/* Centralizar os títulos e textos do rodapé */
+.rodape {
+    text-align: center;
+}
